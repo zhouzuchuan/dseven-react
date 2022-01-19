@@ -1,0 +1,37 @@
+{
+  "name": "@dseven/hooks",
+  "version": "1.0.0",
+  "description": "Now I’m the model of a modern major general / The venerated Virginian veteran whose men are all / Lining up, to put me up on a pedestal / Writin’ letters to relatives / Embellishin’ my elegance and eloquence / But the elephant is in the room / The truth is in ya face when ya hear the British cannons go / BOOM",
+  "keywords": [],
+  "author": "fezzc <zhouzuchuan@sina.com>",
+  "license": "ISC",
+  "main": "lib/hooks.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1",
+    "build2": "builder hooks"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.16.8",
+    "@dseven/builder-react": "^0.0.0",
+    "@types/react": "^17.0.38",
+    "cross-env": "^7.0.3",
+    "react": "^17.0.2",
+    "typescript": "^4.5.4"
+  },
+  "peerDependencies": {
+    "react": "16.x"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.16.7"
+  }
+}

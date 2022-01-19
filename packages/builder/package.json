@@ -1,0 +1,43 @@
+{
+  "name": "@dseven/builder-react",
+  "version": "0.0.0",
+  "private": true,
+  "description": "> TODO: description",
+  "author": "fezzc <zhouzuchuan@sina.com>",
+  "homepage": "",
+  "license": "ISC",
+  "main": "lib/builder.js",
+  "bin": {
+    "builder": "lib/builder.js"
+  },
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1",
+    "build": "npm run build:types && npm run build:js",
+    "build:types": "tsc --emitDeclarationOnly",
+    "build:js": "babel src --out-dir lib --extensions \".ts,.tsx\""
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.16.8",
+    "@babel/core": "^7.16.7",
+    "@babel/plugin-transform-runtime": "^7.16.8",
+    "@babel/preset-env": "^7.16.8",
+    "@babel/preset-typescript": "^7.16.7",
+    "@babel/runtime": "^7.16.7",
+    "@types/commander": "^2.12.2",
+    "@types/node": "^17.0.8",
+    "@types/shelljs": "^0.8.11",
+    "commander": "^8.3.0",
+    "shelljs": "^0.8.5",
+    "typescript": "^4.5.4"
+  }
+}
