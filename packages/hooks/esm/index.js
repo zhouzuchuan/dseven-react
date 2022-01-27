@@ -1,1 +1,1 @@
-export { default as useCache } from './useCache';
+export { default as useTemp } from './useTemp';

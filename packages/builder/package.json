@@ -6,25 +6,22 @@
   "author": "fezzc <zhouzuchuan@sina.com>",
   "homepage": "",
   "license": "ISC",
-  "main": "lib/builder.js",
+  "main": "src/index.js",
   "bin": {
-    "builder": "lib/builder.js"
+    "builder": "src/index.js"
   },
   "directories": {
-    "lib": "lib",
+    "src": "src",
     "test": "__tests__"
   },
   "files": [
-    "lib"
+    "src"
   ],
   "publishConfig": {
     "access": "public"
   },
   "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1",
-    "build": "npm run build:types && npm run build:js",
-    "build:types": "tsc --emitDeclarationOnly",
-    "build:js": "babel src --out-dir lib --extensions \".ts,.tsx\""
+    "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "devDependencies": {
     "@babel/cli": "^7.16.8",

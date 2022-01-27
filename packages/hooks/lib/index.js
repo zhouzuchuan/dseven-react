@@ -5,11 +5,11 @@ var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefau
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-Object.defineProperty(exports, "useCache", {
+Object.defineProperty(exports, "useTemp", {
   enumerable: true,
   get: function get() {
-    return _useCache["default"];
+    return _useTemp["default"];
   }
 });
 
-var _useCache = _interopRequireDefault(require("./useCache"));
+var _useTemp = _interopRequireDefault(require("./useTemp"));
