@@ -1,6 +1,6 @@
 {
   "name": "@dseven/taro",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "taro 集成组件",
   "keywords": [],
   "author": "fezzc <zhouzuchuan@sina.com>",
@@ -24,7 +24,7 @@
     "build": "builder js"
   },
   "devDependencies": {
-    "@dseven/builder-react": "^0.0.0",
+    "@dseven/builder-react": "^0.1.0",
     "@tarojs/components": "^3.4.1",
     "@tarojs/react": "^3.4.1",
     "@tarojs/taro": "^3.4.1",
@@ -33,7 +33,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.16.7",
-    "@dseven/hooks": "^0.0.1",
+    "@dseven/hooks": "^0.1.0",
     "linaria": "^3.0.0-beta.17",
     "lodash": "^4.17.21"
   }
