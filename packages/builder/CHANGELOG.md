@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.1](https://github.com/zhouzuchuan/dseven-react/compare/@dseven/builder-react@0.1.0...@dseven/builder-react@0.1.1) (2022-02-09)
+
+
+### Features
+
+* **global:** 调整 ([7abd781](https://github.com/zhouzuchuan/dseven-react/commit/7abd781f5be0bbc3097027dbdf0a3030f62a41c8))
+
+
+
+
+
 # 0.1.0 (2022-02-09)
 
 
