@@ -14,7 +14,9 @@
     "test": "__tests__"
   },
   "files": [
-    "lib"
+    "lib",
+    "esm",
+    "types"
   ],
   "publishConfig": {
     "access": "public"
@@ -24,17 +26,18 @@
     "build": "builder js"
   },
   "devDependencies": {
+    "@babel/runtime": "^7.16.7",
     "@dseven/builder-react": "^0.1.0",
     "@tarojs/components": "^3.4.1",
     "@tarojs/react": "^3.4.1",
     "@tarojs/taro": "^3.4.1",
     "@types/react": "^17.0.38",
+    "linaria": "^3.0.0-beta.17",
+    "lodash": "^4.17.21",
     "react": "^17.0.2"
   },
   "dependencies": {
-    "@babel/runtime": "^7.16.7",
     "@dseven/hooks": "^0.1.0",
-    "linaria": "^3.0.0-beta.17",
-    "lodash": "^4.17.21"
+    "lodash.debounce": "^4.0.8"
   }
 }

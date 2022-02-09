@@ -6,7 +6,7 @@ import React, {
   useEffect,
   useRef,
 } from 'react'
-import _ from 'lodash'
+import debounce from 'lodash.debounce'
 import Taro, { useDidShow } from '@tarojs/taro'
 import { ScrollView, View } from '@tarojs/components'
 import { styled } from '@linaria/react'
@@ -183,7 +183,7 @@ const ScrollList = React.forwardRef<ScrollListRef, ScrollListProps>(
       return {
         onRefresherRefresh: handleRefresherRefresh,
         refresherEnabled: cacheData.remote,
-        onScroll: _.debounce((event) => {
+        onScroll: debounce((event) => {
           cacheData.onScroll?.(event)
           cacheData.tempScrollViewScrollTop = event.detail.scrollTop
         }, 800),
