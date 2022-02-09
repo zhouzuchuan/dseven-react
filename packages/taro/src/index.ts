@@ -1,1 +1,1 @@
-export { default as List } from './components/UList'
+export { default as ScrollList } from './components/ScrollList'

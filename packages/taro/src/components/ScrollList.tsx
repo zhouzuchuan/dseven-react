@@ -14,13 +14,13 @@ import { ScrollViewProps } from '@tarojs/components/types/ScrollView'
 
 import { useTemp } from '@dseven/hooks'
 
-export type UListRef = {
+export type ScrollListRef = {
   resetContainerHeight: () => void
   handleRefresherRefresh: () => void
   setScrollTop: (value?: number) => void
 }
 
-export interface UListProps
+export interface ScrollListProps
   extends Omit<ScrollViewProps, 'refresherEnabled' | 'onRefresherRefresh'> {
   header?: React.ReactNode
   requestParams?: Record<string, any>
@@ -41,14 +41,10 @@ export interface UListProps
    * */
   onRequest?: () => void
 
-  nodata_text?: React.ReactNode
-
-  hideNodata?: boolean
-
   noData?: React.ReactNode
 }
 
-const UList = React.forwardRef<UListRef, UListProps>(
+const ScrollList = React.forwardRef<ScrollListRef, ScrollListProps>(
   (
     {
       children,
@@ -61,12 +57,10 @@ const UList = React.forwardRef<UListRef, UListProps>(
       serveRequest,
       pageSize = 30,
       header,
-      nodata_text,
       lowerThreshold,
       onScrollToLower,
       onScroll,
       scrollTop = 0,
-      hideNodata = false,
       noData,
       ...otherScrollViewProps
     },
@@ -77,7 +71,7 @@ const UList = React.forwardRef<UListRef, UListProps>(
       // 是否是远程
       remote: typeof serveRequest === 'function',
       // 唯一ID
-      wrapperId: 'ScrollViewWrap-' + Date.now(),
+      wrapperId: 'DsScrollListWrap-' + Date.now(),
       // 页面已经显示的数量
       showItemNumber: 0,
       // 刷新回调
@@ -208,7 +202,7 @@ const UList = React.forwardRef<UListRef, UListProps>(
       currentScrollTop,
     ])
 
-    const setScrollTop: UListRef['setScrollTop'] = useCallback(
+    const setScrollTop: ScrollListRef['setScrollTop'] = useCallback(
       (value) => {
         setCurrentScrollTop(value || cacheData.tempScrollViewScrollTop)
       },
@@ -310,8 +304,7 @@ const UList = React.forwardRef<UListRef, UListProps>(
           {children || (
             <>
               {dataSource.map(render)}
-              {!hideNodata &&
-                !cacheData.isFirst &&
+              {!cacheData.isFirst &&
                 !cacheData.isRefresh &&
                 !loading &&
                 !dataSource.length &&
@@ -324,7 +317,7 @@ const UList = React.forwardRef<UListRef, UListProps>(
   }
 )
 
-export default UList
+export default ScrollList
 
 const StyledWrap = styled(View)`
   flex-grow: 1;
