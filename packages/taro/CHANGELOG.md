@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.2](https://github.com/zhouzuchuan/dseven-react/compare/@dseven/taro@0.1.1...@dseven/taro@0.1.2) (2022-02-10)
+
+
+### Features
+
+* **global:** cli ([efe5d4f](https://github.com/zhouzuchuan/dseven-react/commit/efe5d4f253cab96350b9835c875629f56bc71ee8))
+
+
+
+
+
 ## [0.1.1](https://github.com/zhouzuchuan/dseven-react/compare/@dseven/taro@0.1.0...@dseven/taro@0.1.1) (2022-02-09)
 
 
