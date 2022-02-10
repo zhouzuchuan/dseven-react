@@ -31,13 +31,13 @@
     "@tarojs/components": "^3.4.1",
     "@tarojs/react": "^3.4.1",
     "@tarojs/taro": "^3.4.1",
+    "@types/lodash.debounce": "^4.0.6",
     "@types/react": "^17.0.38",
-    "linaria": "^3.0.0-beta.17",
-    "lodash": "^4.17.21",
     "react": "^17.0.2"
   },
   "dependencies": {
     "@dseven/hooks": "^0.1.1",
     "lodash.debounce": "^4.0.8"
-  }
+  },
+  "gitHead": "2f264d64299ea0ffb1a9669128165f2e6f5070f4"
 }

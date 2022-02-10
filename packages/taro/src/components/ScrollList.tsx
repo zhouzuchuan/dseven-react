@@ -9,10 +9,10 @@ import React, {
 import debounce from 'lodash.debounce'
 import Taro, { useDidShow } from '@tarojs/taro'
 import { ScrollView, View } from '@tarojs/components'
-import { styled } from '@linaria/react'
 import { ScrollViewProps } from '@tarojs/components/types/ScrollView'
 
 import { useTemp } from '@dseven/hooks'
+import { mergeStyle } from '../utils'
 
 export type ScrollListRef = {
   resetContainerHeight: () => void
@@ -291,7 +291,18 @@ const ScrollList = React.forwardRef<ScrollListRef, ScrollListProps>(
     useDidShow(() => setCount((v) => v + 1))
 
     return (
-      <StyledWrap className={className} id={cacheData.wrapperId} style={style}>
+      <View
+        className={'ds-taro-scroll-list ' + className}
+        id={cacheData.wrapperId}
+        style={mergeStyle(
+          {
+            flexGrow: 1,
+            flex: 1,
+            overflow: 'hidden',
+          },
+          style
+        )}
+      >
         <ScrollView
           {...otherScrollViewProps}
           ref={scrollViewRef}
@@ -312,19 +323,9 @@ const ScrollList = React.forwardRef<ScrollListRef, ScrollListProps>(
             </>
           )}
         </ScrollView>
-      </StyledWrap>
+      </View>
     )
   }
 )
 
 export default ScrollList
-
-const StyledWrap = styled(View)`
-  flex-grow: 1;
-  flex: 1;
-  overflow: hidden;
-
-  taro-scroll-view-core {
-    height: 100%;
-  }
-`

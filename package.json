@@ -13,18 +13,31 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "release": "npm run build && lerna version patch",
-    "publish": "npm run release && lerna publish from-package"
+    "publish": "lerna publish from-package",
+    "postpublishn": "git add . && git commit -am 'version plus' && git push && git push --tags && rm -rf build/temp",
+    "commit": "git-cz",
+    "prepare": "husky install",
+    "postinstall": "npx husky install",
+    "lint:css": "stylelint src/**/*.tsx",
+    "lint:js": "eslint src/**/*.tsx src/**/*.ts src/**/*.js",
+    "lint": "npm run lint:js && npm run lint:css"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@commitlint/cli": "^16.1.0",
+    "@commitlint/config-conventional": "^16.0.0",
     "@storybook/addon-actions": "^6.4.14",
     "@storybook/addon-essentials": "^6.4.14",
     "@storybook/addon-links": "^6.4.14",
     "@storybook/node-logger": "^6.4.14",
     "@storybook/preset-create-react-app": "^3.2.0",
     "@storybook/react": "^6.4.14",
+    "@storybook/storybook-deployer": "^2.8.10",
+    "commitizen": "^4.2.4",
+    "cz-customizable": "^6.3.0",
+    "husky": "^7.0.4",
     "lerna": "^4.0.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
@@ -40,6 +53,28 @@
           "import/no-anonymous-default-export": "off"
         }
       }
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -e $GIT_PARAMS"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{ts,tsx,less,css}": [
+      "prettier --write",
+      "npm run lint"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-customizable"
+    }
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
     ]
   }
 }
