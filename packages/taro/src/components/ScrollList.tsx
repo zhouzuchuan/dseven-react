@@ -16,7 +16,7 @@ import { mergeStyle } from '../utils'
 
 export type ScrollListRef = {
   resetContainerHeight: () => void
-  handleRefresherRefresh: () => void
+  handleRefresherRefresh: (resetPostition?: boolean) => void
   setScrollTop: (value?: number) => void
 }
 
@@ -95,6 +95,9 @@ const ScrollList = React.forwardRef<ScrollListRef, ScrollListProps>(
       onScrollToLower,
       onScroll,
       tempScrollViewScrollTop: 0,
+
+      // 是否定位到刷新前的位置（手动调用设置）
+      tempRefreshPosition: false,
     })
     const [loading, setLoading] = useState(false)
     const [count, setCount] = useState(0)
@@ -128,13 +131,21 @@ const ScrollList = React.forwardRef<ScrollListRef, ScrollListProps>(
     }, [cacheData])
 
     // 刷新函数
-    const handleRefresherRefresh = useCallback(async () => {
-      cacheData.isRefresh = true
-      await cacheData.onRefresh?.(() => setCount((v) => v + 1))
+    const handleRefresherRefresh = useCallback(
+      async (resetPostition = false) => {
+        const tempRefreshPosition =
+          typeof resetPostition === 'boolean' ? resetPostition : false
+        if (!tempRefreshPosition) {
+          cacheData.isRefresh = true
+        }
+        cacheData.tempRefreshPosition = tempRefreshPosition
+        await cacheData.onRefresh?.(() => setCount((v) => v + 1))
 
-      // 远程刷新 则重新赋值  请求数据
-      if (cacheData.remote) setParams({ ...requestParams, pageNum: 1 })
-    }, [cacheData, requestParams, setParams, setCount])
+        // 远程刷新 则重新赋值  请求数据
+        if (cacheData.remote) setParams({ ...requestParams, pageNum: 1 })
+      },
+      [cacheData, requestParams, setParams, setCount]
+    )
 
     // 加载下一页函数
     const handleScrollToLower = useCallback(
@@ -216,7 +227,11 @@ const ScrollList = React.forwardRef<ScrollListRef, ScrollListProps>(
     }))
 
     useEffect(() => {
+      cacheData.isUnmounted = false
       resetContainerHeight()
+      return () => {
+        cacheData.isUnmounted = true
+      }
     }, [resetContainerHeight])
 
     useEffect(() => {
@@ -251,18 +266,25 @@ const ScrollList = React.forwardRef<ScrollListRef, ScrollListProps>(
 
               setDataSource(newData)
             } else {
-              cacheData.noDisplayData.push(...(data.rows || []))
-              setDataSource((oldData) => {
-                const newData = [...oldData, ...spliceNoDisplayData()]
-                cacheData.showItemNumber = newData.length
-                return newData
-              })
+              if (cacheData.tempRefreshPosition) {
+                cacheData.noDisplayData = data.rows || []
+                setDataSource(spliceNoDisplayData(cacheData.showItemNumber))
+              } else {
+                cacheData.noDisplayData.push(...(data.rows || []))
+                setDataSource((oldData) => {
+                  const newData = [...oldData, ...spliceNoDisplayData()]
+                  cacheData.showItemNumber = newData.length
+                  return newData
+                })
+              }
             }
           })
           .finally(() => {
             cacheData.isFirst = false
             cacheData.loading = false
             cacheData.isRefresh = false
+
+            cacheData.tempRefreshPosition = false
 
             setLoading(false)
             Taro.hideLoading()
@@ -274,10 +296,6 @@ const ScrollList = React.forwardRef<ScrollListRef, ScrollListProps>(
               setCount((v) => v + 1)
             }
           })
-      }
-
-      return () => {
-        cacheData.isUnmounted = true
       }
     }, [
       serveRequest,

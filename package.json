@@ -14,7 +14,7 @@
     "build-storybook": "build-storybook",
     "release": "npm run build && lerna version patch",
     "publish": "lerna publish from-package",
-    "postpublishn": "git add . && git commit -am 'version plus' && git push && git push --tags && rm -rf build/temp",
+    "postrelease": "git add . && git commit -am 'version plus' && git push && git push --tags && rm -rf build/temp",
     "commit": "git-cz",
     "prepare": "husky install",
     "postinstall": "npx husky install",
