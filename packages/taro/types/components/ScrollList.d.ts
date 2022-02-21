@@ -2,7 +2,7 @@ import React from 'react';
 import { ScrollViewProps } from '@tarojs/components/types/ScrollView';
 export declare type ScrollListRef = {
     resetContainerHeight: () => void;
-    handleRefresherRefresh: () => void;
+    handleRefresherRefresh: (resetPostition?: boolean) => void;
     setScrollTop: (value?: number) => void;
 };
 export interface ScrollListProps extends Omit<ScrollViewProps, 'refresherEnabled' | 'onRefresherRefresh'> {
