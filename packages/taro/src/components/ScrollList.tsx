@@ -267,8 +267,10 @@ const ScrollList = React.forwardRef<ScrollListRef, ScrollListProps>(
               setDataSource(newData)
             } else {
               if (cacheData.tempRefreshPosition) {
+                const maxSize = Math.max(cacheData.showItemNumber, pageSize)
                 cacheData.noDisplayData = data.rows || []
-                setDataSource(spliceNoDisplayData(cacheData.showItemNumber))
+                setDataSource(spliceNoDisplayData(maxSize))
+                cacheData.showItemNumber = maxSize
               } else {
                 cacheData.noDisplayData.push(...(data.rows || []))
                 setDataSource((oldData) => {
