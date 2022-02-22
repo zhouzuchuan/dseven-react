@@ -1,4 +1,5 @@
 import React from 'react';
+import Taro from '@tarojs/taro';
 import { ScrollViewProps } from '@tarojs/components/types/ScrollView';
 export declare type ScrollListRef = {
     resetContainerHeight: () => void;
@@ -26,6 +27,7 @@ export interface ScrollListProps extends Omit<ScrollViewProps, 'refresherEnabled
      * */
     onRequest?: () => void;
     noData?: React.ReactNode;
+    loadingProps?: Taro.showLoading.Option;
 }
-declare const ScrollList: React.ForwardRefExoticComponent<Pick<ScrollListProps, "key" | "id" | "animation" | "hidden" | "header" | "style" | "className" | "scrollLeft" | "scrollTop" | "scrollIntoView" | "scrollX" | "scrollY" | "render" | "dangerouslySetInnerHTML" | "onClick" | "onDragEnd" | "onDragStart" | "onTouchCancel" | "onTouchEnd" | "onTouchMove" | "onTouchStart" | "onScroll" | "onAnimationStart" | "onAnimationEnd" | "onAnimationIteration" | "onTransitionEnd" | "onLongPress" | "onLongClick" | "onTouchForceChange" | "upperThreshold" | "lowerThreshold" | "scrollWithAnimation" | "enableBackToTop" | "enableFlex" | "scrollAnchoring" | "refresherThreshold" | "refresherDefaultStyle" | "refresherBackground" | "refresherTriggered" | "enhanced" | "bounces" | "showScrollbar" | "pagingEnabled" | "fastDeceleration" | "onScrollToUpper" | "onScrollToLower" | "onRefresherPulling" | "onRefresherRestore" | "onRefresherAbort" | "onDragging" | "requestParams" | "serveRequest" | "pageSize" | "onRefresh" | "onRequest" | "noData"> & React.RefAttributes<ScrollListRef>>;
+declare const ScrollList: React.ForwardRefExoticComponent<Pick<ScrollListProps, "key" | "id" | "animation" | "hidden" | "header" | "style" | "className" | "scrollLeft" | "scrollTop" | "scrollIntoView" | "scrollX" | "scrollY" | "render" | "dangerouslySetInnerHTML" | "onClick" | "onDragEnd" | "onDragStart" | "onTouchCancel" | "onTouchEnd" | "onTouchMove" | "onTouchStart" | "onScroll" | "onAnimationStart" | "onAnimationEnd" | "onAnimationIteration" | "onTransitionEnd" | "onLongPress" | "onLongClick" | "onTouchForceChange" | "upperThreshold" | "lowerThreshold" | "scrollWithAnimation" | "enableBackToTop" | "enableFlex" | "scrollAnchoring" | "refresherThreshold" | "refresherDefaultStyle" | "refresherBackground" | "refresherTriggered" | "enhanced" | "bounces" | "showScrollbar" | "pagingEnabled" | "fastDeceleration" | "onScrollToUpper" | "onScrollToLower" | "onRefresherPulling" | "onRefresherRestore" | "onRefresherAbort" | "onDragging" | "requestParams" | "serveRequest" | "pageSize" | "onRefresh" | "onRequest" | "noData" | "loadingProps"> & React.RefAttributes<ScrollListRef>>;
 export default ScrollList;
