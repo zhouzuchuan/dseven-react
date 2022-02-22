@@ -42,6 +42,8 @@ export interface ScrollListProps
   onRequest?: () => void
 
   noData?: React.ReactNode
+
+  loadingProps?: Taro.showLoading.Option
 }
 
 const ScrollList = React.forwardRef<ScrollListRef, ScrollListProps>(
@@ -62,6 +64,7 @@ const ScrollList = React.forwardRef<ScrollListRef, ScrollListProps>(
       onScroll,
       scrollTop = 0,
       noData,
+      loadingProps = { title: 'Loading' },
       ...otherScrollViewProps
     },
     ref
@@ -90,6 +93,7 @@ const ScrollList = React.forwardRef<ScrollListRef, ScrollListProps>(
       isRefresh: typeof serveRequest === 'function',
       // 未显示数据 每次接口返回数据只会添加 pageSize 数量的数据，剩下的则储存出来 然后滚动展示（即前端分页）
       noDisplayData: [] as any[],
+      loadingProps,
 
       lowerThreshold: lowerThreshold || 200,
       onScrollToLower,
@@ -248,9 +252,7 @@ const ScrollList = React.forwardRef<ScrollListRef, ScrollListProps>(
         cacheData.loading = true
         setLoading(true)
         if (cacheData.isFirst) {
-          Taro.showLoading({
-            title: 'Loading',
-          })
+          cacheData.loadingProps && Taro.showLoading(cacheData.loadingProps)
         }
 
         Taro.showNavigationBarLoading?.()
