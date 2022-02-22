@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.4](https://github.com/zhouzuchuan/dseven-react/compare/@dseven/taro@0.1.3...@dseven/taro@0.1.4) (2022-02-22)
+
+
+### Features
+
+* **taro 集成组件:** scrollList loadingProps ([f64850a](https://github.com/zhouzuchuan/dseven-react/commit/f64850a79bba7c323982739fc06a8436fc1bea84))
+
+
+
+
+
 ## [0.1.3](https://github.com/zhouzuchuan/dseven-react/compare/@dseven/taro@0.1.2...@dseven/taro@0.1.3) (2022-02-21)
 
 
