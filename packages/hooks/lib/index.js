@@ -5,6 +5,12 @@ var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefau
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+Object.defineProperty(exports, "useLatestScope", {
+  enumerable: true,
+  get: function get() {
+    return _useLatestScope["default"];
+  }
+});
 Object.defineProperty(exports, "useTemp", {
   enumerable: true,
   get: function get() {
@@ -13,3 +19,5 @@ Object.defineProperty(exports, "useTemp", {
 });
 
 var _useTemp = _interopRequireDefault(require("./useTemp"));
+
+var _useLatestScope = _interopRequireDefault(require("./useLatestScope"));
