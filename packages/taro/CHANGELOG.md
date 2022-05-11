@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.5](https://github.com/zhouzuchuan/dseven-react/compare/@dseven/taro@0.1.4...@dseven/taro@0.1.5) (2022-05-11)
+
+
+### Features
+
+* **taro 集成组件:** 类型标注 ([563eadf](https://github.com/zhouzuchuan/dseven-react/commit/563eadf872e8bcb5afc95fec3a73f56a73b29560))
+
+
+
+
+
 ## [0.1.4](https://github.com/zhouzuchuan/dseven-react/compare/@dseven/taro@0.1.3...@dseven/taro@0.1.4) (2022-02-22)
 
 

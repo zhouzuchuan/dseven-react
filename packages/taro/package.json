@@ -1,6 +1,6 @@
 {
   "name": "@dseven/taro",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "taro 集成组件",
   "keywords": [],
   "author": "fezzc <zhouzuchuan@sina.com>",
@@ -36,7 +36,7 @@
     "react": "^17.0.2"
   },
   "dependencies": {
-    "@dseven/hooks": "^0.1.4",
+    "@dseven/hooks": "^0.1.5",
     "lodash.debounce": "^4.0.8"
   },
   "gitHead": "7207a62f8c3bfdb4953c03d7dcd45521454c7c76"

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.5](https://github.com/zhouzuchuan/dseven-react/compare/@dseven/hooks@0.1.4...@dseven/hooks@0.1.5) (2022-05-11)
+
+
+### Features
+
+* **global:** node_modules be gone ([9896cdf](https://github.com/zhouzuchuan/dseven-react/commit/9896cdfdda6b8ffb0c44db1ba64935a8ea3de0aa))
+
+
+
+
+
 ## [0.1.4](https://github.com/zhouzuchuan/dseven-react/compare/@dseven/hooks@0.1.3...@dseven/hooks@0.1.4) (2022-02-22)
 
 
